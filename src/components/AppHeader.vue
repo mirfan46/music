@@ -29,6 +29,13 @@
           </li>
           </template>
         </ul>
+        <ul class="flex flex-row mt-1 ml-auto">
+          <li>
+            <a class="px-2 text-white" href="#" @click.prevent="changeLocale">
+              {{ currentLocate }}
+            </a>
+          </li>
+        </ul>
       </div>
     </nav>
   </header>
@@ -41,6 +48,9 @@ export default {
   name: 'AppHeader',
   computed: {
     ...mapState(['userLoggedIn']),
+    currentLocate() {
+      return this.$i18n.locale === 'id' ? 'Indonesia' : 'English';
+    },
   },
   methods: {
     ...mapMutations(['toggleAuthModal']),
@@ -50,6 +60,9 @@ export default {
       if (this.$route.meta.requiresAuth) {
         this.$router.push({ name: 'home' });
       }
+    },
+    changeLocale() {
+      this.$i18n.locale = this.$i18n.locale === 'id' ? 'en' : 'id';
     },
     // toggleAuthModal() {
     //   this.$store.commit('toggleAuthModal');

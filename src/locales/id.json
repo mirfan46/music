@@ -1,0 +1,15 @@
+{
+  "home": {
+    "listen": "Dengarkan Musik Hebat!"
+  },
+  "manage": {
+    "my_song": "Lagu-lagu saya"
+  },
+  "register": {
+    "TOS": "",
+    "accept": ""
+  },
+  "song": {
+    "comment_count": ""
+  }
+}
