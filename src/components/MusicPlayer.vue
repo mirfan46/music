@@ -44,7 +44,7 @@
       <!-- Scrub -->
       <div class="float-left w-7 h-7 leading-3 ml-7 mt-2 player-scrub">
         <div
-            v-if="currentSong.modified_name"
+          v-if="currentSong.modified_name"
           class="
             absolute
             left-0
@@ -55,7 +55,9 @@
           "
         >
           <span class="song-title">{{ currentSong.modified_name }}</span> by
-          <span class="song-artist">(Uploaded by {{ currentSong.display_name }})</span>
+          <span class="song-artist"
+            >(Uploaded by {{ currentSong.display_name }})</span
+          >
         </div>
         <!-- Scrub Container  -->
         <span
@@ -122,7 +124,12 @@ export default {
   name: 'MusicPlayer',
   computed: {
     ...mapGetters(['playing']),
-    ...mapState(['seek', 'duration', 'playerProgress', 'currentSong']),
+    ...mapState({
+      seek: (state) => state.player.seek,
+      duration: (state) => state.player.duration,
+      playerProgress: (state) => state.player.playerProgress,
+      currentSong: (state) => state.player.currentSong,
+    }),
   },
   methods: {
     ...mapActions(['toggleAudio', 'updateSeek']),
