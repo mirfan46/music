@@ -19,6 +19,7 @@
           rounded-full
           focus:outline-none
         "
+        id="play-button"
       >
         <i class="fas" :class="{ 'fa-play': !playing, 'fa-pause': playing}"></i>
       </button>
